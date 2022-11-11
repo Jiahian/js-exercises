@@ -1,98 +1,76 @@
 <template>
-   <h1 class="text-3xl">Question 3</h1>
+  <div>
+    <h1 class="text-3xl">Question 3</h1>
+    <div v-html="displayHtml(people)"/>
+  </div>
 </template>
 
 <script>
-    export default {
-
-    }
-
-    const items = [
-        {
-            title: 'trousers',
-            id: 1,
-            color: 'blue'
-        },
-        {
-            title: 'shirt',
-            id: 2,
-            color: 'green'
-        },
-        {
-            title: 'coat',
-            id: 3,
-            color: 'yellow'
-        }
+export default {
+    data:() => ({
+      people: [
+      {
+        id: 1,
+        first_name: "Dory",
+        last_name: "Cutress",
+        email: "dcutress0@photobucket.com",
+        job: "Account Executive",
+      },
+      {
+        id: 2,
+        first_name: "Prisca",
+        last_name: "Hatto",
+        email: "phatto1@go.com",
+        job: "VP Quality Control",
+      },
+      {
+        id: 3,
+        first_name: "Tilly",
+        last_name: "Noddles",
+        email: "tnoddles2@webeden.co.uk",
+        job: "Account Executive",
+      },
     ]
+  }),
+  props: {
+    html : {
+      type: String, 
+      default:""
+    }
+  },
+  methods: {
+    displayHtml(people) {
 
-    const cards = items.map(n=>{ 
-        <div class="card-container">
-            <div class="card-content">
-                <p class="card-title">
-                    n.title
-                </p>
-                <div class="card-footer">
-                    <p class="card-text">n.id</p>
-                </div>
-            </div>
-        </div>})
+      // Qn: Display a list of people's full name using the array map funciton
+      // Expected output:
+      // - Dory Cutress
+      // - Prisca Hatto
+      // - Tilly Noddles
 
-        console.log(cards)
+      // Concepts: 
+      // - object, array
+      // - mapping
+      // - function
+
+      //Todo:...
+
+      //Ans: 
+      function createList(person){
+        return '<li>' + person.first_name + " " + person.last_name + '</li>'
+      }
+      const list = people.map(createList)
+      const html = '<ul>' + list.join('') + '</ul>';
+      return html;
+    }
+  }
+
+}
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-      .card-container {
-        font-family: "Roboto", sans-serif;
-        filter: drop-shadow(0px 1px 25px rgba(0, 0, 0, 0.25));
-        width: 360px;
-        border-radius: 12px;
-        border: 0.5px solid rgba(0, 0, 0, 0.25);
-        margin-right: 24px;
-        margin-bottom: 48.5px;
-      }
-
-      .card-image {
-        width: 100%;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
-      }
-
-      .card-content {
-        padding: 20px 24px;
-      }
-
-      .card-text {
-        font-size: 16px;
-        line-height: 24px;
-        color: #21252c;
-        margin: 0 0 16px 0;
-      }
-
-      .card-footer {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .card-social-logo {
-        margin-right: 8px;
-      }
-
-      .card-social-text {
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        color: #056dff;
-        text-decoration: none;
-      }
-
-      .cards-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        max-width: 1440px;
-        padding: 0 156px;
-        margin: auto;
-      }
+ul {
+  list-style-type: initial;
+  margin: 16px;
+  padding: 16px;
+}
 </style>
