@@ -10,6 +10,13 @@
 // - Using operations
 // - If-else shortform (Ternary operation)
 
-//Todo: ...
+//Ans: 
+let number = max(3,4); //max(3,3)
+console.log(number);
 
+function max(a,b) {
+  if (a>b) return a
+  else return b
+  // shortform: return (a>b)? a: b;
+}
 </script>

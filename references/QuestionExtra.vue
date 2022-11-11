@@ -1,9 +1,24 @@
 <template>
   <div>
-    <h1 class="text-3xl mb-4">Question Extra</h1>
+    <h1 class="text-3xl">Question Extra</h1>
     <!-- Qn: Use v-for directive to render a list of items based on a given array. -->
     <!-- Display them in cards form. (Refer to the image in the assets folder) -->
     <!-- There are missing css styling too. -->
+    <div class="cards-section">
+      <div v-for="item in items"
+      :key="item"
+      class="card-container">
+        <div class="card-image" v-bind:style="{'background-color': item.color}">
+            {{item.id}}
+        </div>
+        <div class="card-content">
+          <p class="card-title">
+            {{ item.title }}
+          </p>
+          <p class="card-desc">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -68,11 +83,11 @@
       .card-image {
         height: 200px;
         width: 100%;
-        /* border-top-left-radius: ...  */
-        /* border-top-right-radius: ...  */
-        /* display: ... */
-        /* justify-content: ... 
-        /* align-items: ... */
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: #fff;
         font-size: 5rem;
       }
@@ -83,9 +98,9 @@
 
       .cards-section {
         display: flex;
-        /* flex-direction: ... */
+        flex-direction: row;
         justify-content: center;
-        /* flex-wrap: ... */
+        flex-wrap: wrap;
         max-width: 1440px;
         padding: 0 156px;
         margin: auto;

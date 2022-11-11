@@ -10,7 +10,13 @@
 // - array
 // - for-loop
 
-//Todo:...
+//Ans: 
 let words = ["I", "know", "my", "for", "loops :)"];
+let result = "";
 
+for (let i = 0; i < words.length; i++) {
+    result = result + " " + words[i];
+}
+
+console.log(result.trim());
 </script>

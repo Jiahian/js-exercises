@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="text-3xl">Question 3</h1>
-    <div v-html="displayHtml()"/>
+    <div v-html="displayHtml(people)"/>
   </div>
 </template>
 
@@ -39,9 +39,9 @@ export default {
     }
   },
   methods: {
-    displayHtml() {
+    displayHtml(people) {
 
-      // Qn: Display a list of people's full name using the array map funciton.
+      // Qn: Display a list of people's full name using the array map funciton
       // Expected output:
       // - Dory Cutress
       // - Prisca Hatto
@@ -52,8 +52,13 @@ export default {
       // - mapping
       // - function
 
-      //Todo:...
-      
+      //Ans: 
+      function createList(person){
+        return '<li>' + person.first_name + " " + person.last_name + '</li>'
+      }
+      const list = people.map(createList)
+      const html = '<ul>' + list.join('') + '</ul>';
+      return html;
     }
   }
 
